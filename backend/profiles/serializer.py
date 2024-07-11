@@ -1,7 +1,6 @@
 import re
 from enum import StrEnum
 
-from django.shortcuts import get_object_or_404
 from rest_framework import serializers
 from profiles.models import Profile, Label, Company
 

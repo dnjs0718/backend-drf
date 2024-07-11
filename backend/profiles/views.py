@@ -1,5 +1,3 @@
-from enum import StrEnum
-
 from rest_framework import generics, pagination
 
 from profiles.models import Profile
@@ -9,16 +7,6 @@ from profiles.serializer import (
     ProfileDetailSerializer,
     ProfileCreateSerializer
 )
-
-
-class ProfileListOrderingEnum(StrEnum):
-    NAME_ASC = "name"
-    NAME_DESC = "-name"
-    EMAIL_ASC = "email"
-    EMAIL_DESC = "-email"
-    TEL_ASC = "tel"
-    TEL_DESC = "-tel"
-
 
 class ProfileListPagination(pagination.PageNumberPagination):
     page_size = 10
