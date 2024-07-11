@@ -1,8 +1,14 @@
 from enum import StrEnum
 
 from rest_framework import generics, pagination
-from .models import Profile
-from profiles.serializer import ProfileOrderingSerializer, ProfileListSerializer, ProfileDetailSerializer
+
+from profiles.models import Profile
+from profiles.serializer import (
+    ProfileOrderingSerializer,
+    ProfileListSerializer,
+    ProfileDetailSerializer,
+    ProfileCreateSerializer
+)
 
 
 class ProfileListOrderingEnum(StrEnum):
@@ -38,14 +44,16 @@ class ProfileListView(generics.ListAPIView):
         
         return queryset
 
+
 class ProfileDetailView(generics.RetrieveAPIView):
-    queryset = Profile.objects.all()  
     serializer_class = ProfileDetailSerializer  
 
     def get_object(self):
-        queryset = self.get_queryset()
-        
         id = self.request.query_params.get('id')
         
-        profile = generics.get_object_or_404(queryset, id=id)
+        profile = generics.get_object_or_404(Profile, id=id)
         return profile
+
+
+class ProfileCreateView(generics.CreateAPIView):
+    serializer_class = ProfileCreateSerializer
