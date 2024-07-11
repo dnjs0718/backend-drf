@@ -158,7 +158,6 @@ class ProfileCreateView(generics.CreateAPIView):
     - birthday = 생년월일 (Optional) (string)
     - web_site = 웹사이트 (Optional) (string)
     - labels = 라벨 (Optional) (list[string])
-}
         
     # Response
     ```
