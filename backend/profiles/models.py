@@ -38,5 +38,3 @@ class Label(BaseMixin):
     
     class Meta:
         db_table = 'labels'
-        
-
